@@ -1,12 +1,12 @@
 import {useState} from 'react';import {CONFIG} from '../config';import {registerEventDay,payOnline,MSG} from '../services/api';
-const F=[['team_name','Team Name',1],['leader_name','Leader Full Name',1],['leader_phone','Leader Mobile (10 digits)',1],['leader_email','Leader Email',1],['college','College / Institution',1],['city','City',1],['member2_name','Member 2 Name (optional)'],['member2_phone','Member 2 Mobile'],['member2_email','Member 2 Email'],['robot_name','Robot Name',1]];
+const F=[['team_name','Team Name',1],['leader_name','Leader Full Name',1],['leader_phone','Leader Mobile (10 digits)',1],['leader_email','Leader Email',1],['college','College / Institution',1],['city','City',1],['member2_name','Member Name (optional)'],['robot_name','Robot Name',1]];
 const ph=v=>/^[6-9]\d{9}$/.test(v),em=v=>/^\S+@\S+\.\S+$/.test(v);
 export default function Register(){
  const [f,setF]=useState({payment_method:'ONLINE'});const [c1,s1]=useState(false),[c2,s2]=useState(false);const [busy,setBusy]=useState(false),[err,setErr]=useState(''),[done,setDone]=useState(null);
- const v=k=>(f[k]||'').trim();const m2=v('member2_name')||v('member2_phone')||v('member2_email');
+ const v=k=>(f[k]||'').trim();const memberName=v('member2_name');
  const errs={};F.filter(x=>x[2]).forEach(x=>{if(!v(x[0]))errs[x[0]]=1});
  if(v('leader_phone')&&!ph(v('leader_phone')))errs.leader_phone=1;if(v('leader_email')&&!em(v('leader_email')))errs.leader_email=1;
- if(m2&&(!v('member2_name')||!ph(v('member2_phone'))||!em(v('member2_email'))))errs.member2=1;
+ if(memberName && !v('member2_name'))errs.member2=1;
  const valid=!Object.keys(errs).length&&c1&&c2;
  async function submit(e){e.preventDefault();setErr('');setBusy(true);
   const p={...Object.fromEntries(F.map(x=>[x[0],v(x[0])||null])),robot_type:'AUTONOMOUS_WIRELESS',payment_method:f.payment_method};
@@ -23,7 +23,7 @@ export default function Register(){
  return(<form onSubmit={submit} className="card max-w-2xl mx-auto grid gap-3">
   <p className="text-amber-300 text-sm font-semibold">Only AUTONOMOUS + WIRELESS robots. Wired robots are NOT permitted.</p>
   <div className="grid sm:grid-cols-2 gap-3">{F.map(([k,l,r])=><label key={k} className="text-sm">{l}{r&&' *'}<input className={'inp mt-1 '+(f[k]&&errs[k]?'border-red-500':'')} value={f[k]||''} onChange={e=>setF({...f,[k]:e.target.value})} inputMode={k.includes('phone')?'numeric':undefined}/></label>)}</div>
-  {errs.member2&&m2&&<p className="text-red-400 text-sm">Member 2 needs name, valid mobile and email — or leave all three empty.</p>}
+  {errs.member2&&memberName&&<p className="text-red-400 text-sm">Member name is required if you add a member.</p>}
   <label className="text-sm">Robot Type<select className="inp mt-1" disabled><option>Autonomous Wireless</option></select></label>
   <div className="grid sm:grid-cols-2 gap-3">{[['ONLINE','Pay online now (Razorpay)'],['EVENT_DAY','Pay ₹200 on event day']].map(([k,l])=><label key={k} className={'card cursor-pointer '+(f.payment_method===k?'border-cyan-400':'')}><input type="radio" checked={f.payment_method===k} onChange={()=>setF({...f,payment_method:k})}/> {l}</label>)}</div>
   <label className="text-sm"><input type="checkbox" checked={c1} onChange={e=>s1(e.target.checked)}/> I confirm that our robot is autonomous and wireless and that wired robots are not permitted.</label>
