@@ -1,0 +1,22 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#0A101C"/>
+  <circle cx="250" cy="180" r="150" fill="#F59E0B" fill-opacity="0.18"/>
+  <circle cx="980" cy="620" r="180" fill="#22D3EE" fill-opacity="0.14"/>
+  <path d="M180 160H1020" stroke="#F8C947" stroke-opacity="0.45" stroke-width="3" stroke-dasharray="10 12"/>
+  <path d="M180 640H1020" stroke="#5EE3FF" stroke-opacity="0.45" stroke-width="3" stroke-dasharray="10 12"/>
+  <rect x="200" y="230" width="800" height="300" rx="32" fill="#101C2B" stroke="#F8C947" stroke-width="4"/>
+  <path d="M300 400H905" stroke="#5EE3FF" stroke-width="12" stroke-linecap="round" stroke-dasharray="10 18"/>
+  <path d="M350 330L450 330L490 270L560 270L620 330L780 330L840 285" stroke="#8AF2FF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M330 470L420 470L500 405L610 405L700 470L860 470" stroke="#A78BFA" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="350" cy="330" r="28" fill="#2DD4BF"/>
+  <circle cx="860" cy="285" r="28" fill="#2DD4BF"/>
+  <circle cx="420" cy="470" r="28" fill="#F59E0B"/>
+  <circle cx="860" cy="470" r="28" fill="#F59E0B"/>
+  <rect x="470" y="200" width="220" height="70" rx="18" fill="#151E33" stroke="#F8C947" stroke-width="4"/>
+  <text x="580" y="248" text-anchor="middle" fill="#F7D779" font-size="34" font-family="Arial, sans-serif" font-weight="700">FINAL</text>
+  <g opacity="0.7">
+    <path d="M220 120L245 70L270 120" stroke="#A78BFA" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M950 120L925 70L900 120" stroke="#5EE3FF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="600" y="675" text-anchor="middle" fill="#F3F8FF" font-size="58" font-family="Arial, sans-serif" font-weight="700">CHAMPIONSHIP BATTLE</text>
+</svg>

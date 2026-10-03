@@ -1,0 +1,19 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+html{scroll-behavior:smooth}
+body{background:#07090f;color:#e5e7eb;font-family:Inter,sans-serif;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:40px 40px;overflow-x:hidden}
+#root{position:relative;isolation:isolate}
+#root::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 20% 20%,rgba(34,211,238,0.12),transparent 30%),radial-gradient(circle at 80% 30%,rgba(168,85,247,0.14),transparent 28%);z-index:-2}
+.rc-car{position:fixed;left:0;top:18%;width:180px;height:90px;z-index:-1;pointer-events:none;filter:drop-shadow(0 0 12px rgba(34,211,238,0.25));animation:roam 20s ease-in-out infinite alternate}
+.rc-car .body{position:absolute;left:18px;top:28px;width:114px;height:32px;border-radius:18px 16px 14px 14px;background:linear-gradient(135deg,#f8fafc,#58d5ff 35%,#10b981 100%);box-shadow:0 0 24px rgba(34,211,238,0.35)}
+.rc-car .cab{position:absolute;left:82px;top:10px;width:56px;height:28px;border-radius:12px;background:linear-gradient(135deg,#e2e8f0,#a5f3fc);border:3px solid rgba(255,255,255,0.45)}
+.rc-car .wheel{position:absolute;bottom:-8px;width:28px;height:28px;border-radius:50%;background:#0b1220;border:4px solid #e2e8f0;box-shadow:inset 0 0 0 5px #94a3b8}
+.rc-car .wheel.left{left:24px}.rc-car .wheel.right{left:108px}
+.rc-car .light{position:absolute;right:10px;top:26px;width:16px;height:10px;border-radius:8px;background:#facc15;box-shadow:0 0 12px rgba(250,204,21,0.9)}
+.rc-car .smoke{position:absolute;left:-6px;bottom:20px;width:18px;height:18px;border-radius:50%;background:rgba(148,163,184,0.45);filter:blur(2px);animation:puff 1.3s ease-in-out infinite}
+.rc-car .smoke:nth-child(1){left:4px;animation-delay:0s}.rc-car .smoke:nth-child(2){left:10px;animation-delay:.2s}.rc-car .smoke:nth-child(3){left:16px;animation-delay:.45s}
+@keyframes roam {0%{transform:translate(0,0) rotate(-5deg);opacity:0.2}15%{transform:translate(18vw,20px) rotate(2deg);opacity:0.7}35%{transform:translate(34vw,45px) rotate(-3deg);opacity:0.8}55%{transform:translate(58vw,12px) rotate(4deg);opacity:0.7}75%{transform:translate(78vw,64px) rotate(-4deg);opacity:0.8}100%{transform:translate(110vw,8px) rotate(2deg);opacity:0.25}}
+@keyframes puff{0%{transform:scale(0.8);opacity:0.4}50%{transform:scale(1.3);opacity:0.8}100%{transform:scale(2);opacity:0}}
+.card{@apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5}
+.inp{@apply w-full rounded-lg bg-black/40 border border-white/15 px-3 py-2 outline-none focus:border-cyan-400}
+.btn{@apply rounded-lg bg-cyan-400 text-black font-bold px-5 py-3 transition hover:shadow-[0_0_24px_#22d3ee99] disabled:opacity-40 disabled:cursor-not-allowed}
+@media print{body{background:#fff;color:#000}.noprint{display:none}}
